@@ -3,13 +3,13 @@ import { Form, Button } from "react-bootstrap";
 import { useNavigate, Link } from "react-router-dom";
 
 function Login() {
-  const navigate = useNavigate();
   const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [Email, setEmail] = useState("");
+  const [Password, setPassword] = useState("");
 
   return (
     <div style={{marginTop: "200px"}}>
-      <strong className="fs-1 text-center text-light">Sign In</strong>
+      <strong className="fs-1 text-center text-light">Log in</strong>
       <Form
         className="row px-1 g-3 m-5 text-light col-md-4 mx-auto"
       >
@@ -24,17 +24,28 @@ function Login() {
           />
         </Form.Group>
         <Form.Group className="row-md-6 text-start">
+          <Form.Label>Email</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Enter Email"
+            onChange={(e) => setEmail(e.target.value)}
+            value={Email}
+            required
+          />
+        </Form.Group>
+
+        <Form.Group className="row-md-6 text-start">
           <Form.Label>Password</Form.Label>
           <Form.Control
             type="password"
             placeholder="Enter password"
             onChange={(e) => setPassword(e.target.value)}
-            value={password}
+            value={Password}
             required
           />
         </Form.Group>
         <Form.Group>
-          {username && password ? (
+          {username && Password ? (
             <Button
               className="col-3 mb-1 btn-outline-primary"
               variant="light"

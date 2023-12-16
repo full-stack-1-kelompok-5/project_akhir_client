@@ -2,11 +2,12 @@
   text-align: center;
 }
 * {
-  background-color: #4C586F;
+  background-color: #5F6F52;
 }
-.App-logo {
+.App.App-header {
   height: 40vmin;
   pointer-events: none;
+  text-align: center;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -37,4 +38,8 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.text-center {
+  text-align: center;
 }

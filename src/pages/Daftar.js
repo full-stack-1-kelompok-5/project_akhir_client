@@ -27,29 +27,46 @@ const Daftar = () => {
             <div className="container">
                 <div className="row justify-content-center">
                     <div className="col-md-6">
-                        <div className="card">
-                            <div className="card-body">
+                        <div className="">
+                            <div className="">
                                 <div className="form-group">
-                                    <h2>Daftar</h2>
-                                    <label>Username</label>
+                                    <h2 style={{ color: 'white' }}>Daftar</h2>
+                                    <div className="row-md-6 text-start">
+                                    <label style={{ color: 'white' }}>Username</label>
+                                    </div>
                                     <input type="text" placeholder="Username" className="form-control" value={username} onChange={changeUsername} />
                                 </div>
 
                                 <div className="form-group">
-                                    <label>Email</label>
+                                    <div className="row-md-6 text-start">
+                                    <label style={{ color: 'white' }}>Email</label>
                                     <input type="text" placeholder="Email" className="form-control" value={email} onChange={changeEmail} />
+                                    </div>
                                 </div>
 
                                 <div className="form-group">
-                                    <label>Password</label>
+                                    <div className="row-md-6 text-start">
+                                    <label style={{ color: 'white' }}>Password</label>
                                     <input type="Password" placeholder="Password" className="form-control" value={password} onChange={changePassword}/>
+                                    </div>
                                 </div>
-
-                                <button className="btn btn-primary col-10 mb-1">Daftar</button>
                                 <Form>
-                                    <Link to="/login" className="text">
+                                <Link to="/login" className="text">
+                                <button className="btn btn-primary col-10 mb-1">Daftar</button>
+                                </Link>
+                                </Form>
+                                <Form>
+                                    <Link to="/" className="text">
                                     <button className="btn btn-primary col-10 mb-1">Batal</button>
                                     </Link>
+                                </Form>
+                                <Form>
+                                    <div className="text-start text-light">
+                                        Jika mempunyai akun,{" "}
+                                        <Link to="/login" className="text">
+                                        <strong>Login</strong>
+                                        </Link>
+                                    </div>
                                 </Form>
                             </div>
                         </div>
@@ -60,4 +77,4 @@ const Daftar = () => {
     )
 }
 
-export default Daftar
+export default Daftar;
