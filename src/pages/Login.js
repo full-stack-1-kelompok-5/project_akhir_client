@@ -1,28 +1,32 @@
 import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import { useNavigate, Link } from "react-router-dom";
+import { login, putAccessToken } from "../network";
 
 function Login() {
-  const [username, setUsername] = useState("");
+  const navigate = useNavigate()
   const [Email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
+  
+  async function onSubmitHandler(event) {
+    event.preventDefault();
+    const response = await login({ Email, Password });
+    if (response?.data?.token) {
+      putAccessToken(response.data.token);
+      navigate('/dashboard');
+    }
+  }
 
   return (
     <div style={{marginTop: "200px"}}>
       <strong className="fs-1 text-center text-light">Log in</strong>
       <Form
         className="row px-1 g-3 m-5 text-light col-md-4 mx-auto"
+        onSubmit={(event) => {
+          onSubmitHandler(event);
+        }}
       >
-        <Form.Group className="row-md-6 text-start">
-          <Form.Label>Username</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Enter username"
-            onChange={(e) => setUsername(e.target.value)}
-            value={username}
-            required
-          />
-        </Form.Group>
+
         <Form.Group className="row-md-6 text-start">
           <Form.Label>Email</Form.Label>
           <Form.Control
@@ -45,7 +49,7 @@ function Login() {
           />
         </Form.Group>
         <Form.Group>
-          {username && Password ? (
+          {Email && Password ? (
             <Button
               className="col-3 mb-1 btn-outline-primary"
               variant="light"
