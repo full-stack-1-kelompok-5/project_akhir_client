@@ -1,24 +1,44 @@
 import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
-import { useNavigate, Link } from "react-router-dom";
-import { login, putAccessToken } from "../network";
+import { useNavigate, Link, useParams } from "react-router-dom";
+import {
+  loginAdmin,
+  loginWaiters,
+  loginKitchen,
+  putAccessToken,
+} from "../network";
 
 function Login() {
-  const navigate = useNavigate()
+  const { role } = useParams();
+  const navigate = useNavigate();
   const [Email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
-  
+
   async function onSubmitHandler(event) {
     event.preventDefault();
-    const response = await login({ Email, Password });
-    if (response?.data?.token) {
-      putAccessToken(response.data.token);
-      navigate('/dashboard');
+    if (role === "admin") {
+      const response = await loginAdmin({ Email, Password });
+      if (response?.data?.token) {
+        putAccessToken(response.data.token);
+        navigate("/admin");
+      }
+    } else if (role === "waiters") {
+      const response = await loginWaiters({ Email, Password });
+      if (response?.data?.token) {
+        putAccessToken(response.data.token);
+        navigate("/waiters");
+      }
+    } else if (role === "kitchen") {
+      const response = await loginKitchen({ Email, Password });
+      if (response?.data?.token) {
+        putAccessToken(response.data.token);
+        navigate("/kitchen");
+      }
     }
   }
 
   return (
-    <div style={{marginTop: "200px"}}>
+    <div style={{ marginTop: "200px" }}>
       <strong className="fs-1 text-center text-light">Log in</strong>
       <Form
         className="row px-1 g-3 m-5 text-light col-md-4 mx-auto"
@@ -26,7 +46,6 @@ function Login() {
           onSubmitHandler(event);
         }}
       >
-
         <Form.Group className="row-md-6 text-start">
           <Form.Label>Email</Form.Label>
           <Form.Control

@@ -17,16 +17,16 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="/" element={<Header />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/login/:role" element={<Login />} />
         <Route path="/daftar" element={<Daftar />} />
         <Route path="/Admin" element={<Admin />} />
         <Route path="/waiters" element={<Waiters />} />
         <Route path="/menu" element={<Menu />} />
-        <Route path="/kitchen" element={<Kitchen/>} />
+        <Route path="/kitchen" element={<Kitchen />} />
         <Route path="/AddMenu" element={<AddMenu />} />
         <Route path="UpdateMenu" element={<UpdateMenu />} />
         <Route path="Status" element={<Status />} />
-        <Route path="Order" element={<Order/>} />
+        <Route path="Order" element={<Order />} />
       </Routes>
     </div>
   );
