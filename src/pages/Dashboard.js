@@ -30,17 +30,17 @@ const Dashboard = () => {
             <ul className="navbar-nav">
               <li className="nav-item">
                 <Link className="nav-link active" to="/home">
-                  Home
+                  <h6>Home</h6>
                 </Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to="/menu">
-                  Menu
+                  <h6>Menu</h6>
                 </Link>
               </li>
               <li className="nav-item">
                 <button className="nav-link" onClick={handleLogout}>
-                  Logout
+                  <h6>Logout</h6>
                 </button>
               </li>
             </ul>
