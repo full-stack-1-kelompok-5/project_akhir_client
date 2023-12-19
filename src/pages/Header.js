@@ -1,7 +1,7 @@
 import React from 'react';
-import logo from '../image/logo1.png'; // Sesuaikan path dan nama file dengan direktori dan nama file Anda.
-import { Form, Button } from "react-bootstrap";
-import { useNavigate, Link } from "react-router-dom";
+import logo from '../image/logo1.png'; 
+import { Form } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import "../App.css";
 
 const Header = () => {

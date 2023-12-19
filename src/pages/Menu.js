@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Table, Button } from 'react-bootstrap';
+import { Table, Button, Row, Col } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const Menu = () => {
   const [menuData, setMenuData] = useState([
@@ -9,7 +10,6 @@ const Menu = () => {
     { id: 4, name: 'Sop Buntut', price: 25000 },
     { id: 5, name: 'Sate Ayam', price: 18000 },
   ]);
-
 
   const handleEdit = (id) => {
     console.log(`Edit menu with ID ${id}`);
@@ -39,9 +39,6 @@ const Menu = () => {
               <td>{menu.name}</td>
               <td>{menu.price}</td>
               <td>
-                <Button variant="warning" onClick={() => handleEdit(menu.id)}>
-                  Edit
-                </Button>{' '}
                 <Button variant="danger" onClick={() => handleDelete(menu.id)}>
                   Delete
                 </Button>
@@ -50,6 +47,19 @@ const Menu = () => {
           ))}
         </tbody>
       </Table>
+      <Row className="mb-3">
+        <Col>
+          <Link to="/Admin">
+            <Button variant="success">Back</Button>
+          </Link>
+        </Col>
+        <Col>
+          <Link to="/AddMenu">
+            <Button variant="success">TambahMenu</Button>
+          </Link>
+        </Col>
+
+      </Row>
     </div>
   );
 };

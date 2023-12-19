@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Form, Button } from "react-bootstrap";
-import { useNavigate, Link } from "react-router-dom";
+import { Form } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const Daftar = () => {
     const[username,setUsername] = useState('');
