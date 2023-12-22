@@ -84,7 +84,7 @@ const Order = () => {
             <th>Quantity</th>
             <th>Price</th>
             <th>Total</th>
-            <th>Action</th>
+            <th>Action</th>         
           </tr>
         </thead>
         <tbody>
@@ -95,8 +95,16 @@ const Order = () => {
               <td>{order.price} IDR</td>
               <td>{order.total} IDR</td>
               <td>
+              <Button variant="btn btn-warning mr-3">
+                  Order
+                </Button>
+
+                <Button variant="btn btn-success mr-3">
+                  Ready
+                </Button>
+
                 <Button variant="danger" onClick={() => handleDeleteOrder(index)}>
-                  Delete
+                  Cancel
                 </Button>
               </td>
             </tr>

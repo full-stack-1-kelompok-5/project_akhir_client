@@ -12,9 +12,13 @@ const Header = () => {
       <div class="text-light">
       <Form.Label><h4>Select Login Area</h4></Form.Label>
       <Form>
-      <Link to="/login" className="text">
+      <Link to="/login/admin" className="text">
       <button type="button" class="btn btn-secondary btn-lg mr-2">Admin</button>
+      </Link>
+      <Link to="/login/waiters" className="text">
       <button type="button" class="btn btn btn-secondary btn-lg mr-2">Waiters</button>
+      </Link>
+      <Link to="/login/kitchen" className="text">
       <button type="button" class="btn btn btn-secondary btn-lg">Kitchen</button>
       </Link>
       </Form>

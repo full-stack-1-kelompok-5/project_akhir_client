@@ -42,6 +42,9 @@ const Menu = () => {
                 <Button variant="danger" onClick={() => handleDelete(menu.id)}>
                   Delete
                 </Button>
+                <Button variant="warning" onClick={() => handleEdit(menu.id)}>
+                  Edit
+                </Button>
               </td>
             </tr>
           ))}

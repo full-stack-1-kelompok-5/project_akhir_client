@@ -30,11 +30,7 @@ const Daftar = () => {
                         <div className="">
                             <div className="">
                                 <div className="form-group">
-                                    <h2 style={{ color: 'white' }}>Daftar</h2>
-                                    <div className="row-md-6 text-start">
-                                    <label style={{ color: 'white' }}>Username</label>
-                                    </div>
-                                    <input type="text" placeholder="Username" className="form-control" value={username} onChange={changeUsername} />
+                                <strong className="fs-1 text-center text-light">Log in</strong>
                                 </div>
 
                                 <div className="form-group">
@@ -51,7 +47,7 @@ const Daftar = () => {
                                     </div>
                                 </div>
                                 <Form>
-                                <Link to="/login" className="text">
+                                <Link to="/login/:role" className="text">
                                 <button className="btn btn-primary col-10 mb-1">Daftar</button>
                                 </Link>
                                 </Form>
@@ -63,7 +59,7 @@ const Daftar = () => {
                                 <Form>
                                     <div className="text-start text-light">
                                         Jika mempunyai akun,{" "}
-                                        <Link to="/login" className="text">
+                                        <Link to="/login/:role" className="text">
                                         <strong>Login</strong>
                                         </Link>
                                     </div>
