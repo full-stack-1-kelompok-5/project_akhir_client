@@ -30,7 +30,7 @@ const Daftar = () => {
                         <div className="">
                             <div className="">
                                 <div className="form-group">
-                                <strong className="fs-1 text-center text-light">Log in</strong>
+                                <strong className="fs-1 text-center text-light">Daftar</strong>
                                 </div>
 
                                 <div className="form-group">
