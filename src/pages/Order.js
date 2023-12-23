@@ -8,7 +8,6 @@ const Order = () => {
     { id: 1, name: 'Nasi Goreng', price: 15000 },
     { id: 2, name: 'Soto Ayam', price: 12000 },
     { id: 3, name: 'Mie Goreng', price: 13000 },
-    
   ]);
 
   const [orders, setOrders] = useState([]);
@@ -32,6 +31,7 @@ const Order = () => {
           quantity,
           price: selectedMenuItem.price,
           total: selectedMenuItem.price * quantity,
+          createdAt: new Date().toLocaleString(), // Added createdAt property
         };
 
         setOrders((prevOrders) => [...prevOrders, newOrder]);
@@ -48,7 +48,7 @@ const Order = () => {
   };
 
   return (
-    <Container>
+    <Container className="d-flex flex-column min-vh-100">
       <h1>Place Your Order</h1>
       <Form>
         <Form.Group controlId="formMenu">
@@ -76,6 +76,7 @@ const Order = () => {
         </Button>
       </Form>
       <br />
+      <div className="flex-grow-1">
       <h2>Your Orders</h2>
       <Table striped bordered hover>
         <thead>
@@ -84,7 +85,8 @@ const Order = () => {
             <th>Quantity</th>
             <th>Price</th>
             <th>Total</th>
-            <th>Action</th>         
+            <th>Created At</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>
@@ -94,8 +96,9 @@ const Order = () => {
               <td>{order.quantity}</td>
               <td>{order.price} IDR</td>
               <td>{order.total} IDR</td>
+              <td>{order.createdAt || 'N/A'}</td>
               <td>
-              <Button variant="btn btn-warning mr-3">
+                 <Button variant="btn btn-warning mr-3">
                   Order
                 </Button>
 
@@ -113,9 +116,14 @@ const Order = () => {
       </Table>
       <Link to="/Waiters">
         <Button variant="primary">
-          Back to Waiters
+          Back to Home
         </Button>
       </Link>
+      </div>
+      <hr />
+      <footer>
+        <p>copyright &copy; 2023 Nocturnals</p>
+      </footer>
     </Container>
   );
 };

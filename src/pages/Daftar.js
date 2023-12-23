@@ -47,7 +47,7 @@ const Daftar = () => {
                                     </div>
                                 </div>
                                 <Form>
-                                <Link to="/login/:role" className="text">
+                                <Link to="/login/Admin" className="text">
                                 <button className="btn btn-primary col-10 mb-1">Daftar</button>
                                 </Link>
                                 </Form>
@@ -59,7 +59,7 @@ const Daftar = () => {
                                 <Form>
                                     <div className="text-start text-light">
                                         Jika mempunyai akun,{" "}
-                                        <Link to="/login/:role" className="text">
+                                        <Link to="/login/Admin" className="text">
                                         <strong>Login</strong>
                                         </Link>
                                     </div>

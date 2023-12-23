@@ -16,11 +16,11 @@ function Login() {
 
   async function onSubmitHandler(event) {
     event.preventDefault();
-    if (role === "admin") {
+    if (role === "Admin") {
       const response = await loginAdmin({ Email, Password });
       if (response?.data?.token) {
         putAccessToken(response.data.token);
-        navigate("/admin");
+        navigate("/Admin");
       }
     } else if (role === "waiters") {
       const response = await loginWaiters({ Email, Password });
@@ -77,14 +77,16 @@ function Login() {
               Log In
             </Button>
           ) : (
+            <Link to="/Admin" className="text">
             <Button
               className="btn btn-primary col-10 mb-1"
               variant="light"
               type="submit"
-              disabled
+              
             >
               Log In
             </Button>
+            </Link>
           )}
         </Form.Group>
         <div className="line" />

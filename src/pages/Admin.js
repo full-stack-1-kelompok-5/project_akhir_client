@@ -9,7 +9,7 @@ const Admin = () => {
   };
 
   return (
-    <Container>
+    <Container className="d-flex flex-column min-vh-100">
       <div>
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
           <div className="container-fluid">          
@@ -44,6 +44,11 @@ const Admin = () => {
                   </Link>
                 </li>
                 <li className="nav-item">
+                  <Link className="nav-link" to="/AddOrder">
+                    <h6>Order</h6>
+                  </Link>
+                </li>
+                <li className="nav-item">
                   <Link className="nav-link" to="/" onClick={handleLogout}>
                     <h6>Logout</h6>
                   </Link>
@@ -53,6 +58,7 @@ const Admin = () => {
           </div>
         </nav>
       </div>
+      <div className="flex-grow-1">
       <h1>Welcome to Our Restaurant</h1>
       <p>
         <strong>Selamat Datang Di Restoran</strong>
@@ -73,6 +79,11 @@ const Admin = () => {
           </p>
         </Col>
       </Row>
+      </div>
+      <hr />
+      <footer>
+        <p>copyright &copy; 2023 Nocturnals</p>
+      </footer>
     </Container>
   );
 };

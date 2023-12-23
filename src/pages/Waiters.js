@@ -9,7 +9,7 @@ const Waiters = () => {
   };
 
   return (
-    <Container>
+    <Container className="d-flex flex-column min-vh-100">
       <div>
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
           <div className="container-fluid">          
@@ -53,6 +53,7 @@ const Waiters = () => {
           </div>
         </nav>
       </div>
+      <div className="flex-grow-1">
       <h1>Welcome to Our Restaurant</h1>
       <p>
         <strong>Selamat Datang Di Restoran</strong>
@@ -73,6 +74,13 @@ const Waiters = () => {
           </p>
         </Col>
       </Row>
+      </div>
+      <div>
+      </div>
+      <hr />
+      <footer>
+        <p>copyright &copy; 2023 Nocturnals</p>
+      </footer>
     </Container>
   );
 };

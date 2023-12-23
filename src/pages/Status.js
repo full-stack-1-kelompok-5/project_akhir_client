@@ -19,7 +19,8 @@ const Status = () => {
   };
 
   return (
-    <Container>
+    <Container className="d-flex flex-column min-vh-100">
+      <div className="flex-grow-1">
       <h1>Kitchen Status</h1>
       <Table striped bordered hover>
         <thead>
@@ -39,6 +40,13 @@ const Status = () => {
               <td>{order.quantity}</td>
               <td>{order.status}</td>
               <td>
+              <Button
+                variant='warning m-2'
+                onClick={() => updateStatus(order.id, 'Ordered')}
+                disabled={order.status === 'ordered'}
+                >
+                  Ordered
+                </Button>
                 <Button
                   variant="success"
                   onClick={() => updateStatus(order.id, 'Cooking')}
@@ -70,8 +78,17 @@ const Status = () => {
         <Link to="/kitchen">
           <Button variant="success">Kembali Ke Kitchen</Button>
         </Link>
+        <div>
+          <p></p>
+        </div>
       </div>
+      </div>
+      <hr />
+      <footer>
+        <p>copyright &copy; 2023 Nocturnals</p>
+      </footer>
     </Container>
+    
   );
 };
 

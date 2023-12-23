@@ -53,7 +53,7 @@ const Menu = () => {
       <Row className="mb-3">
         <Col>
           <Link to="/Admin">
-            <Button variant="success">Back</Button>
+            <Button variant="success">Back To Home</Button>
           </Link>
         </Col>
         <Col>
@@ -63,7 +63,11 @@ const Menu = () => {
         </Col>
 
       </Row>
+      <footer>
+        <p>copyright &copy; 2023 Nocturnals</p>
+      </footer>
     </div>
+    
   );
 };
 

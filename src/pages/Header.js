@@ -7,6 +7,8 @@ import "../App.css";
 const Header = () => {
   
   return (
+    <div className="d-flex flex-column min-vh-100">
+      <div className="flex-grow-1">
     <div className="text-center">
       <img src={logo} alt="Logo" style={{ width: '500px', height: '500px' }} />
       <div class="text-light">
@@ -23,6 +25,8 @@ const Header = () => {
       </Link>
       </Form>
       </div>
+    </div>
+    </div>
     </div>
   );
 };
