@@ -27,13 +27,13 @@ const AddMenu = ({ onAdd }) => {
 
   return (
     <div>
-      <h2>Tambah Menu</h2>
+      <h2>Add Menu</h2>
       <Form onSubmit={handleSubmit}>
         <Form.Group controlId="formName">
-          <Form.Label>Nama Menu</Form.Label>
+          <Form.Label>Menu Name</Form.Label>
           <Form.Control
             type="text"
-            placeholder="Masukkan nama menu"
+            placeholder="Enter a menu name"
             name="name"
             value={newMenu.name}
             onChange={handleChange}
@@ -41,24 +41,24 @@ const AddMenu = ({ onAdd }) => {
         </Form.Group>
 
         <Form.Group controlId="formPrice">
-          <Form.Label>Harga</Form.Label>
+          <Form.Label>Price</Form.Label>
           <Form.Control
             type="text"
-            placeholder="Masukkan harga menu"
+            placeholder="Enter menu prices"
             name="price"
             value={newMenu.price}
             onChange={handleChange}
           />
         </Form.Group>
 
-        <Button variant="primary" type="submit">
+        <Button variant="success" type="submit">
           Submit
         </Button>
       </Form>
 
-      <Link to="/Menu">
-        <Button variant="danger" className="mt-3">
-          Kembali ke Menu
+      <Link to="/Admin">
+        <Button variant="success" className="mt-3">
+          Back To Home
         </Button>
       </Link>
     </div>

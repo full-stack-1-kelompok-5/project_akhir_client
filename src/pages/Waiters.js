@@ -39,8 +39,8 @@ const Waiters = () => {
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/order">
-                    <h6>Order</h6>
+                  <Link className="nav-link" to="/OrderList">
+                    <h6>OrderList</h6>
                   </Link>
                 </li>
                 <li className="nav-item">

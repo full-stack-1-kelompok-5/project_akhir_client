@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Table, Button, Row, Col } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Table, Button, Modal, Form } from 'react-bootstrap';
+
+import AddMenu from './AddMenu';
 
 const Menu = () => {
   const [menuData, setMenuData] = useState([
@@ -11,8 +12,25 @@ const Menu = () => {
     { id: 5, name: 'Sate Ayam', price: 18000 },
   ]);
 
+  const [showEditModal, setShowEditModal] = useState(false);
+  const [editMenu, setEditMenu] = useState({ id: null, name: '', price: '' });
+
   const handleEdit = (id) => {
-    console.log(`Edit menu with ID ${id}`);
+    const menuToEdit = menuData.find((menu) => menu.id === id);
+    setEditMenu({ ...menuToEdit });
+    setShowEditModal(true);
+  };
+
+  const handleCloseEditModal = () => {
+    setShowEditModal(false);
+  };
+
+  const handleSaveEdit = () => {
+    const updatedMenuData = menuData.map((menu) =>
+      menu.id === editMenu.id ? { ...menu, name: editMenu.name, price: editMenu.price } : menu
+    );
+    setMenuData(updatedMenuData);
+    setShowEditModal(false);
   };
 
   const handleDelete = (id) => {
@@ -20,8 +38,14 @@ const Menu = () => {
     setMenuData(updatedMenu);
   };
 
+  const handleAddMenu = (newMenu) => {
+    const id = menuData.length + 1;
+    const menuWithId = { id, ...newMenu };
+    setMenuData((prevMenuData) => [...prevMenuData, menuWithId]);
+  };
+
   return (
-    <div>
+    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       <h1>Menu Page</h1>
       <Table striped bordered hover>
         <thead>
@@ -50,24 +74,49 @@ const Menu = () => {
           ))}
         </tbody>
       </Table>
-      <Row className="mb-3">
-        <Col>
-          <Link to="/Admin">
-            <Button variant="success">Back To Home</Button>
-          </Link>
-        </Col>
-        <Col>
-          <Link to="/AddMenu">
-            <Button variant="success">TambahMenu</Button>
-          </Link>
-        </Col>
 
-      </Row>
-      <footer>
+      <AddMenu onAdd={handleAddMenu} />
+
+      <Modal show={showEditModal} onHide={handleCloseEditModal}>
+        <Modal.Header closeButton>
+          <Modal.Title>Edit Menu</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form>
+            <Form.Group controlId="formName">
+              <Form.Label>Menu Name</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter a menu name"
+                value={editMenu.name}
+                onChange={(e) => setEditMenu({ ...editMenu, name: e.target.value })}
+              />
+            </Form.Group>
+            <Form.Group controlId="formPrice">
+              <Form.Label>Price</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter menu prices"
+                value={editMenu.price}
+                onChange={(e) => setEditMenu({ ...editMenu, price: e.target.value })}
+              />
+            </Form.Group>
+          </Form>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleCloseEditModal}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={handleSaveEdit}>
+            Save Changes
+          </Button>
+        </Modal.Footer>
+      </Modal>
+
+      <footer style={{ borderTop: '1px solid black', padding: '15px', marginTop: 'auto' }}>
         <p>copyright &copy; 2023 Nocturnals</p>
       </footer>
     </div>
-    
   );
 };
 

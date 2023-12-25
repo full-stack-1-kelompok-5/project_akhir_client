@@ -27,9 +27,9 @@ const Status = () => {
           <tr>
             <th>ID Pesanan</th>
             <th>Menu</th>
-            <th>Jumlah</th>
+            <th>Total Order</th>
             <th>Status</th>
-            <th>Aksi</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>
@@ -45,7 +45,7 @@ const Status = () => {
                 onClick={() => updateStatus(order.id, 'Ordered')}
                 disabled={order.status === 'ordered'}
                 >
-                  Ordered
+                  Preparing
                 </Button>
                 <Button
                   variant="success"
@@ -76,7 +76,7 @@ const Status = () => {
       
       <div className="mb-3">
         <Link to="/kitchen">
-          <Button variant="success">Kembali Ke Kitchen</Button>
+          <Button variant="success">Back To Home</Button>
         </Link>
         <div>
           <p></p>

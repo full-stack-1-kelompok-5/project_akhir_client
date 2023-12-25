@@ -44,7 +44,7 @@ const Admin = () => {
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/AddOrder">
+                  <Link className="nav-link" to="/OrderList">
                     <h6>Order</h6>
                   </Link>
                 </li>
