@@ -35,7 +35,6 @@ async function loginAdmin({ Email, Password }) {
     alert(responseJson.error);
     return { error: true, code: response.status, data: null };
   }
-  console.log(5);
 
   return { error: false, code: response.status, data: responseJson.data };
 }
@@ -80,11 +79,30 @@ async function loginKitchen({ Email, Password }) {
   return { error: false, code: response.status, data: responseJson.data };
 }
 
-export {
+async function networkFunction({ item_name, price, image, adminId, waitersId }) {
+  const response = await fetch(`${BASE_URL}/Menu/Create`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ item_name, price, image, adminId, waitersId }),
+  });
+
+  const responseJson = await response.json();
+
+  if (response.status >= 400) {
+    return { error: true, code: response.status, data: null };
+  }
+
+  return { error: false, code: response.status, data: responseJson.data };
+}
+
+export default {
   getAccessToken,
   putAccessToken,
   deleteAccessToken,
   loginAdmin,
   loginWaiters,
   loginKitchen,
+  networkFunction,
 };

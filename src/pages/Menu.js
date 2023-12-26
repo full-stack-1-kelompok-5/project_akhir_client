@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { Table, Button, Modal, Form } from 'react-bootstrap';
-
+import networkFunction from "../network"
 import AddMenu from './AddMenu';
+import { useNavigate } from 'react-router-dom';
 
 const Menu = () => {
+  const navigate = useNavigate()
   const [menuData, setMenuData] = useState([
     { id: 1, name: 'Nasi Goreng', price: 15000 },
     { id: 2, name: 'Mie Goreng', price: 12000 },
@@ -11,6 +13,19 @@ const Menu = () => {
     { id: 4, name: 'Sop Buntut', price: 25000 },
     { id: 5, name: 'Sate Ayam', price: 18000 },
   ]);
+
+  const [menu, setMenu] = useState({
+    item_name:"",
+     price:"",
+      image:"",
+       adminId:"",
+        waitersId:"",
+  });
+  const onSubmitHandler = (event) => {
+    event.preventDefault();
+    networkFunction(menu.item_name, menu.price, menu.image, menu.adminId, menu.waitersId);
+    navigate("/menu");
+  }
 
   const [showEditModal, setShowEditModal] = useState(false);
   const [editMenu, setEditMenu] = useState({ id: null, name: '', price: '' });
