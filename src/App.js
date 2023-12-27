@@ -3,6 +3,7 @@ import Daftar from "./pages/Daftar.js";
 import Header from "./pages/Header.js";
 import Waiters from "./pages/Waiters.js";
 import UpdateMenu from "./pages/UpdateMenu.js";
+import AddOrder from "./pages/AddOrder.js";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import Menu from "./pages/Menu.js";
@@ -25,6 +26,7 @@ function App() {
         <Route path="UpdateMenu" element={<UpdateMenu />} />
         <Route path="Status" element={<Status />} />
         <Route path="OrderList" element={<OrderList />} />
+        <Route path="AddOrder" element={<AddOrder />} />
       </Routes>
     </div>
   );

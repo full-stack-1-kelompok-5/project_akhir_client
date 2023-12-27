@@ -97,7 +97,7 @@ async function networkFunction({ item_name, price, image, adminId, waitersId }) 
   return { error: false, code: response.status, data: responseJson.data };
 }
 
-export default {
+export {
   getAccessToken,
   putAccessToken,
   deleteAccessToken,

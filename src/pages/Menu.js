@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Table, Button, Modal, Form } from 'react-bootstrap';
-import networkFunction from "../network"
+import {networkFunction} from "../utils/network"
 import AddMenu from './AddMenu';
 import { useNavigate } from 'react-router-dom';
 
@@ -129,7 +129,7 @@ const Menu = () => {
       </Modal>
 
       <footer style={{ borderTop: '1px solid black', padding: '15px', marginTop: 'auto' }}>
-        <p>copyright &copy; 2023 Nocturnals</p>
+        <p>Copyright &copy; 2023 Nocturnals</p>
       </footer>
     </div>
   );

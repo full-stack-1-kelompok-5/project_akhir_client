@@ -6,7 +6,7 @@ import {
   loginWaiters,
   loginKitchen,
   putAccessToken,
-} from "./network";
+} from "../utils/network";
 
 function Login() {
   const { role } = useParams();
